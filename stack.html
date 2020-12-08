@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<style>
+    body{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #msg{
+        transition: 0.1;
+    }
+    .parent{
+        height:310px;
+        width:201px;
+        background-color: rgb(2, 6, 20);
+        position: relative;
+        display: flex;
+        flex-direction: column-reverse;
+        overflow: hidden;
+    }
+    .children{
+        height:62px;
+        width:200px;
+        background-color: rgb(161, 11, 248);
+        border:1px solid white;
+        text-align: center;
+        color:white;
+        opacity:1;
+    }
+    @keyframes child{
+        from{
+            opacity:0.3;
+        }
+        to{
+            opacity:1;
+        }
+    }
+
+
+   
+    .container{
+        margin:50px 600px;
+        display: flex;
+        flex-direction: column;
+    }
+    .btn{
+        margin: 5px;
+    }
+    .level-indicator{
+        height:300px;
+        width:40px;
+        background-color: rgb(29, 68, 211);
+        position: relative;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .level{
+        height:70px;
+        width:40px;
+        background-color: rgb(161, 11, 248);
+        border:2px solid white;
+        text-align: center;
+        color:white;
+        opacity:1;
+        font-size: 30px;
+        padding:2px 0px;
+    }
+</style>
+<body>
+    <div class="container">
+    <input type="number" class="btn" placeholder="Stack-Push-Value" style="padding:10px;border-radius: 50px;border:none;outline:none;border:1px solid black" id="element"></input>
+    <div style="display: flex;justify-content: center;width:100%">
+    <button  class="btn" onclick="push()">push</button>
+    <button class="btn" onclick="pop()">pop</button>
+</div>
+<div style="display: flex;justify-content: center;width:100%">
+	<input class="btn colorpicker" type="color" onfocusout="colorchanger()">
+</div>
+    <center><h1 id="msg"></h1></center>
+    <center style="display: flex;justify-content: space-between;">
+        <div class="level-indicator">
+            <div class="level">1</div>
+            <div class="level">2</div>
+            <div class="level">3</div>
+            <div class="level">4</div>
+            <div class="level">5</div>
+        </div>
+    <div class="parent">
+    </div>
+    <div class="level-indicator">
+        <div class="level">1</div>
+        <div class="level">2</div>
+        <div class="level">3</div>
+        <div class="level">4</div>
+        <div class="level">5</div>
+    </div>
+</center>
+
+</div>
+    <script src="stack.js"></script>
+</body>
+
+</html>
