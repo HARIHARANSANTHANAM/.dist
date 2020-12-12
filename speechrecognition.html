@@ -58,7 +58,8 @@
         var current=event.resultIndex;
         var transcript=event.results[current][0].transcript;
         
-        textarea.value+=transcript;
+        content+=transcript;
+        textarea.value=content;
         console.log(transcript);
     }
 
