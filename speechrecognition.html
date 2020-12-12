@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+
+    textarea{
+        width:100%;
+    }
+    .btn {
+        margin: 2px;
+        border-radius:5px;
+        background-color: rgb(245, 32, 32);
+        color: white;
+        border:none;
+        width:300px;
+        height:40px;
+        font-size: 20px;
+        outline:none;
+        transition: .5s;
+    }
+
+    .btn:hover{
+        cursor: pointer;
+        box-shadow: 0px 2px 16px 16px rgba(197, 192, 192, 0.1);
+        background-color: rgb(255, 6, 6);
+    }
+    body{  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+</style>
+<body>
+    <center><h1>SPEECH RECOGNITION</h1></center>
+    <br><br>
+    <textarea id="text" rows="10"></textarea>
+    <label id="msg">Microphone is off</label>
+  <center><button onclick="start()" class="btn">start</button></center>
+  <script>
+    var speechrecognition=window.webkitSpeechRecognition;
+     var recognition=new speechrecognition()
+
+     var content="";
+     var textarea=document.getElementById("text");
+     var message=document.getElementById("msg");
+     recognition.continuous=true;
+
+    recognition.onstart=function(){
+        console.log("started");
+        message.innerHTML="Voice Recognition is On";
+    }
+
+    recognition.onspeechend=function(){
+        console.log("No activity");
+    }
+
+    recognition.onerror=function(){
+        console.log("Try again..")
+    }
+
+    recognition.onresult=function(event){
+        var current=event.resultIndex;
+        var transcript=event.results[current][0].transcript;
+        
+        textarea.value+=transcript;
+        console.log(transcript);
+    }
+
+   function start()
+   {
+       if(content.length)
+       {
+           content+="";
+       }
+
+       recognition.start();
+   }
+
+</script>
+</body>
