@@ -48,10 +48,13 @@
 
     recognition.onspeechend=function(){
         console.log("No activity");
+         message.innerHTML="No activity..";
     }
 
     recognition.onerror=function(){
         console.log("Try again..")
+        
+         message.innerHTML="Try Again...";
     }
 
     recognition.onresult=function(event){
